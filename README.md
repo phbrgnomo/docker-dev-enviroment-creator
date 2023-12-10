@@ -1,29 +1,43 @@
 ## Overview
 
-This repository provides two handy scripts to streamline the process of creating and building Docker projects.
+This repository streamlines the process of creating and building Docker projects.
+The main goal is to organize and quickly deploy new projects configured to be used with the [Dev Conatiner VSCode plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
-### newproject.sh
+### Contents:
+
+- templates/ - Where the dockerfiles and docker-compose templates live.
+- newproject.sh - creates a new folder (if doesnt exist) and prepare it with the chosen docker context files
+- build.sh - build the container using the desired engine and start the container
+
+The `Dockerfile` on the root folder is a sample to test and try different context files
+
+#### Instructions
+
+##### newproject.sh
 
 This script creates a new project folder, copying a Dockerfile and a docker-compose file based on the specified template. If no template is provided, it defaults to using a base Dockerfile. The script also checks for existing project folders to avoid overwriting.
 
-#### Usage
+###### Usage
 
 ```bash
 ./newproject.sh <project_name> <template_name>
 ```
-- **'<project_name>'**: The name of your new project.
-- **'<template_name>'**: *(Optional)* The name of the template to use. If not provided, it defaults to the base template.
+- **`<project_name>`**: The name of your new project.
+- **`<template_name>`**: *(Optional)* The name of the template to use. It will copy the respective templates from the `/templates` folder If not provided, it defaults to the base template.
 
-### build.sh
+##### build.sh
 
-This script builds the Docker image for your project based on the Dockerfile in the project folder. Additionally, it provides an option to enter the bash shell of the built image for interactive use.
+This script builds the Docker image for your project based on the Dockerfile in the project folder.
 
-#### Usage
+##### Usage
 
 ```bash
-./build.sh [shell]
+./build.sh <build_engine> <context_file>
 ```
-- **'shell':** *(Optional)* If provided, it opens an interactive bash shell inside the built image.
+- **`<build_engine>`:** Defines what engine will be used to build the container(s). Parameters:
+    - `dockerfile` - Use `docker build` to build and `docker run` to start the container
+    - `compose` - Use `docker-compose up` to build and start the container(s).
+- **`<context_file>`:** (Optional) If `dockerfile` is used as engine, this parameter can be used to specify which context file will be used for the build.
 
 ## Getting Started
 1. Clone this repository to your local machine:
@@ -46,9 +60,16 @@ chmod +x newproject.sh build.sh
 Build the project container with build.sh:
 
 ```bash
-./build.sh
+./build.sh dockerfile python
 ```
 
 ## Customization
 - **Templates:** You can add custom templates in the **'templates'** folder. Each template should have **<template_name>**.Dockerfile and **<template_name>**.docker-compose.yml as their file names.
 - **Script Modification:** Feel free to modify the scripts to suit your specific needs or add more functionality.
+
+## Contributing
+
+Feel free to contribute by opening issues or creating pull requests. Your feedback and improvements are highly appreciated!
+
+License
+This project is licensed under the MIT License.
