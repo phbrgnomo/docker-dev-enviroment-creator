@@ -57,11 +57,13 @@ chmod +x newproject.sh build.sh
 ./newproject.sh my_project python
 ```
 
-Build the project container with build.sh:
+4. Build the project container with build.sh:
 
 ```bash
 ./build.sh dockerfile python
 ```
+
+**NOTE**: Check for the need of a `.env` for each template to proper set the appropriate user permissions
 
 ## Customization
 - **Templates:** You can add custom templates in the **'templates'** folder. Each template should have **<template_name>**.Dockerfile and **<template_name>**.docker-compose.yml as their file names.

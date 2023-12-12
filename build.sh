@@ -55,9 +55,9 @@ case "$build_engine" in
         # docker run -d --name "$container_name" "$container_name"
         # echo "docker run -d --name '$container_name' -w '/$container_workdir' -e USER_NAME=$USER_NAME '$container_name'"
         docker run -d -v "$(pwd):/$container_workdir" --name "$container_name" -w "/$container_workdir" "$container_name"
-        echo "docker run -d -v \"\$(pwd):/$container_workdir\" --name \"$container_name\" -w \"/$container_workdir\" \"$container_name\""
-        echo "container_workdir=$container_workdir"
-        echo "USER_NAME=$USER_NAME"
+        # echo "docker run -d -v \"\$(pwd):/$container_workdir\" --name \"$container_name\" -w \"/$container_workdir\" \"$container_name\""
+        # echo "container_workdir=$container_workdir"
+        # echo "USER_NAME=$USER_NAME"
         ;;
 
     "compose")

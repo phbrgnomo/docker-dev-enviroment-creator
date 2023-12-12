@@ -1,0 +1,16 @@
+version: '3'
+services:
+  dev-service:
+    build:
+      context: .
+      dockerfile: godev.Dockerfile
+      args:
+        USER_NAME: ${USER_NAME}
+        USER_ID: ${USER_ID}
+        GROUP_ID: ${GROUP_ID}
+    container_name: dev
+    # extra_hosts:
+    #   - "kubernetes.docker.internal:127.0.0.1"
+    #   - "host.docker.internal:127.0.0.1"
+    volumes:
+      - .:/home/${USER_NAME}/code_env
