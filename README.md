@@ -75,3 +75,9 @@ Feel free to contribute by opening issues or creating pull requests. Your feedba
 
 License
 This project is licensed under the MIT License.
+
+---
+
+**STATUS: ARCHIVED**
+
+This repository was archived on 2026-02-14. The project is kept for historical/reference purposes only and will not receive further updates. See `ARCHIVE.md` for details on why it was archived and how to restore it if needed.
