@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 # Upgrade existing packages, Install additional packages, and clean cache 
 RUN apt-get update && \
